@@ -1,15 +1,15 @@
 const express=require("express"
 );
-
+//require express 
 const app=express();
 
 const mongoose=require("mongoose");
-
+//setting portto 8080
 app.listen(8080,()=>{
     console.log("listening on port 8080");
 
 })
-
+//creating a default port 
 app.get("/",(req,res)=>{
     res.send("welcome");
 });
