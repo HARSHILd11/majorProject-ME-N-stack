@@ -1,27 +1,26 @@
-const mongoose=require("mongoose");
+// model listing 
 
-const Schema=mongoose.Schema;
+const mongoose = require("mongoose");
 
+const Schema = mongoose.Schema;
 
-const listingSchema=new Schema({
-    title:{
-        type:String,
-        requires:true,
-
+const listingSchema = new Schema({
+    title: {
+        type: String,
+        required: true,
     },
-    description:String,
-    image:{
-        type:Object,
-        default:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBjb2N1bnV0JTIwdHJlZXxlbnwwfHwwfHx8MA%3D%3D",
+    description: String,
+    image: {
+        type: Object,
+        default:" https://cf.bstatic.com/xdata/images/hotel/max1280x900/503764986.jpg?k=d03505f72c94cff3b44d43fb1cd86207ef3d5fa2b546a3e569c5aaf081a5dda6&o=&hp=1", 
 
-        set:(v)=>v===""?"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBjb2N1bnV0JTIwdHJlZXxlbnwwfHwwfHx8MA%3D%3D":v,
+        set:(v)=>v===""?" https://cf.bstatic.com/xdata/images/hotel/max1280x900/503764986.jpg?k=d03505f72c94cff3b44d43fb1cd86207ef3d5fa2b546a3e569c5aaf081a5dda6&o=&hp=1":v , //ternary operators
     },
-    price:Number,
-    location:String,
-    country:String,
+    price: Number,
+    location: String,
+    country: String,
 });
 
-const Listing=mongoose.model("Listing",listingSchema);
+const Listing = mongoose.model("Listing", listingSchema);
 
-module.exports=Listing;
-
+module.exports = Listing;
