@@ -1,26 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%layout("/layouts/boilerplate")%>
 <body>
     <h1>Create New Listing</h1>
     <form method="post" action="/listings">
-        <input type="text" placeholder="enter title" name="title">
-        <br>
-        <textarea name="description" placeholder="enter description" id=""></textarea>
-        <br>
-        <input type="text" name="image" placeholder="enter image URL/Link">
-        <br>
-        <input type="number" name="price" placeholder="enter price">
-        <br>
-        <input type="text" name="country " placeholder="enter country">
-        <br>
-        <input type="text " name="location" placeholder="enter location">
-        <br>
-        <button>ADD</button>
+        <div class="mb-3">
+            <label for="title" class="form-lable">Title</label>
+            <input type="text" placeholder="Add a catchy title" name="title" class="form-control">
+        </div>
+     <div class="mb-3">
+        <label for="description" class="form-lable">Description</label>
+        <textarea name="description" placeholder="enter description" id="" class="form-control"></textarea>
+     </div >
+        <div class="mb-3">
+            <label for="image" class="form-lable">Image URL</label>
+            <input type="text" name="image" placeholder="enter image URL/Link" class="form-control">
+        </div>
+      
+        
+      
+        <div class="mb-3">
+            <label for="price" class="form-lable">Price</label>
+            <input type="number" name="price" placeholder="1200" class="form-control">
+        </div>
+       
+      
+        <div class="mb-3">
+            <label for="country" class="form-lable">Country</label>
+            <input type="text" name="country " placeholder="india">
+        </div>
+       
+      
+        <div class="mb-3">
+            <label for="location" class="form-lable">Location</label>
+            <input type="text " name="location" placeholder="indore,Madhya Pradesh">
+        </div>
+        
+   
+        <button class="btn btn-dark">ADD</button>
     </form>
 </body>
 </html> 

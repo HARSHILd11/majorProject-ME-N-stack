@@ -24,7 +24,7 @@ main().then((res)=>{
 });
 
 //require listing from models  
-const   Listing=require("./models/listing.js")
+const   Listing=require("./models/listing.js");
 
 
 // //app.get("/testListing", async(req,res)=>{
@@ -64,7 +64,7 @@ app.get("/listings",async (req,res)=>{
 
 
 //create new listing create route 
-app.get("/listing/new",(req,res)=>{
+app.get("/listings/new",(req,res)=>{
     res.render("listings/new.ejs");
 })
 //show route 
@@ -117,6 +117,18 @@ app.delete("/listings/:id",async(req,res)=>{
     let {id}=req.params;
    let deletedListing= await Listing.findByIdAndDelete(id);
    console.log(deletedListing);
-   
+
     res.redirect("/listings")
 })
+
+
+//templating //ejs-mate 
+
+const ejsMate=require("ejs-mate");
+//helps to create many templates 
+//navbar 
+
+app.engine('ejs',ejsMate);
+
+//use static files 
+app.use(express.static(path.join(__dirname,"/public")))
