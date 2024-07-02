@@ -2,7 +2,7 @@ const express=require("express");
 
 const app= express();
 
-app.listen(8080,()=>{
+app.listen(8882,()=>{
     console.log("connected to localhost 8080");
 
 });
@@ -73,7 +73,7 @@ app.get("/listings/new",(req,res)=>{
 app.get("/listings/:id",async(req,res)=>{
     let {id}= req.params;
 
-    const listing= await Listing.findById(id)
+    const listing= await Listing.findById(id).populate("review");
 
     res.render("./listings/show.ejs",{listing});
 
@@ -132,3 +132,31 @@ app.engine('ejs',ejsMate);
 
 //use static files 
 app.use(express.static(path.join(__dirname,"/public")))
+
+//reviews
+const   Review=require("./models/review.js");
+
+app.post("/listings/:id/reviews",async(req,res)=>{
+  let listing=await  Listing.findById(req.params.id);
+console.log(req.params.id);
+  let newReview=new Review(req.body.review);
+  listing.review.push(newReview);
+  await newReview.save();
+  await listing.save();
+
+  console.log("new review saved");
+  res.redirect(`/listings/${listing._id}`);
+
+
+})
+
+
+//delete review route 
+
+app.delete(
+    "/listings/:id/review/:reviewId",async(req,res)=>{
+    let {id,reviewId}=req.params;
+    await Listing.findByIdAndUpdate(id,{$pull:{reviews:reviewId}} );
+     await Review.findByIdAndDelete(reviewId);
+     res.redirect(`/listings/${id}`);
+});

@@ -63,7 +63,7 @@ font-size: 2rem;
 
 /* cards
  */
- .card{border: none !important;
+ .listing-card{border: none !important;
     margin-bottom: 2rem;
 
 }
@@ -93,4 +93,23 @@ font-size: 2rem;
 .card-img-overlay:hover{
     opacity: .2;
     background-color: white;
+}
+
+.show-image{
+    height: 40vh;
+    width: 20rem;
+}
+
+.del-btn{
+    margin-left: 2%;
+    width: fit-content;
+}
+.del-form{
+    display: flex;
+    flex-direction: row;
+    height: 7vh;
+
+}
+.del-from button{
+    width: 40%;
 }
