@@ -11,7 +11,23 @@
                 <a class="nav-link" href="#">Home</a>
                 <a class="nav-link" href="/listings">allListings</a>
                 <a class="nav-link" href="/listings/new">Add New Listing</a>
+            
 
+            </div>
+            <div class="navbar-nav ms-auto" >
+        <%if(!currUser){%>
+                    
+           <a class="nav-link btn btn-success mr-2" href="/signup">SignUp</a>
+            <a class="nav-link btn btn-success mr-2%" href="/login"  class="">Login</a>
+
+       <% }%>
+       <%if(currUser){%>
+                    
+       <button class="btn btn-danger"> <a class="nav-link" href="/logout">Logout</a>
+       </button>
+
+   <% }%>
+            
             </div>
         </div>
     </div>
